@@ -1,0 +1,19 @@
+#Option -Multiviews -> menghindari kesalahan atau ambigu saat membuka file yg ada di folder
+
+Options -Multiviews
+
+#menulis ulang url yg ada di browser
+#menjalankan proses rewrite
+RewriteEngine On
+#kalo url yg di tulis merupakan folder abaikan -> !-d -> flag d untuk direktori, f untuk folder
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+#untuk menghindari nama folder dan nama file yg sama dg controller
+
+#aturan untuk menulis ulang url menggunakan regex
+RewriteRule ^(.*)$ index.php?url=$1 [L]
+# ^ => membaca apapun yg di tulis di url mulai dari awal, awalnya di tentukan sesuai root dir,ex setelah public
+# (.*) => ambil semua karakternya apapun(.*) satu persatu sampai selesai($)
+#setelah itu arahkan ke file index yg mengirimkan url
+#apapun yg di tulis dan di tangkap oleh regex akan di simpan di $1-> place holder
+# [L] -> flag/aturan => kalo ada rule yg sudah terpenuhi jngn jalankan rule lain setelah ini.

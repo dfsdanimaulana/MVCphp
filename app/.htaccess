@@ -1,0 +1,4 @@
+#Option -Indexes -> kalo ada user yg membuka folder yg di dalamnya ada htaccess yg berisi ini,
+#selama di dalam folder tersebut tidak ada file index dg ekstensi apapun maka jangan tampilkan isi
+#foldernya/block access foldernya
+Options -Indexes
