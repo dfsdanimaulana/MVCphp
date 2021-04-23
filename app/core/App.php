@@ -35,8 +35,11 @@ class App
         //params
         //cek dulu ada gak parameternya
         if (!empty($url)) {
-            var_dump($url);
+            //ambil data
+            $this->params = array_values($url);
         }
+        //jalankan controller & method, serta kirimkan params jika ada
+        call_user_func_array([$this->controller, $this->method], $this->params);
     }
     //method untuk mengambil url dan memecah sesuai dg keinginan
     public function parseURL()
