@@ -1,1 +1,1 @@
-  <h1 class="my-3">Selamat Datang di Website <?= $data['nama'] ?>.</h1>
+  <h1 class="my-3" id="greeting">Selamat Datang di Website <?= $data['nama'] ?>.</h1>
