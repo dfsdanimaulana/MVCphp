@@ -18,19 +18,29 @@ class Daftar_model
         ]
     ];
     //data base handler
-    private $dbh;
-    private $stmt;
+    // private $dbh;
+    // private $stmt;
     //jalankan koneksi ke database
+    // public function __construct()
+    // {
+    //     //data source name
+    //     $dsn = 'mysql:host=localhost;dbname=phpmvc';
+    //     //cek keberhasilan koneksi
+    //     try {
+    //         $this->dbh = new PDO($dsn, 'root', '');
+    //     } catch (PDOException $e) {
+    //         die($e->getMessage());
+    //     }
+    // }
+
+    //table yg mau di pakai
+    private $table = 'daftar';
+    private $db;
+
+
     public function __construct()
     {
-        //data source name
-        $dsn = 'mysql:host=localhost;dbname=phpmvc';
-        //cek keberhasilan koneksi
-        try {
-            $this->dbh = new PDO($dsn, 'root', '');
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+        $this->db = new Database;
     }
     public function getAllData()
     {
@@ -38,8 +48,10 @@ class Daftar_model
     }
     public function getDatabase()
     {
-        $this->stmt = $this->dbh->prepare('SELECT * FROM daftar');
-        $this->stmt->execute();
-        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        // $this->stmt = $this->dbh->prepare('SELECT * FROM daftar');
+        // $this->stmt->execute();
+        // return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->db->query('SELECT * FROM ' . $this->table);
+        return $this->db->allData();
     }
 }
