@@ -14,10 +14,12 @@ class App
         //controller
         // cek dulu apakah ada file di dalam folder controller yg namanya sesuai dg yg kita tulis di url
         //kalo tidak ada gunakan controller default yaitu home
-        if (file_exists('../app/controllers/' . $url[0] . '.php')) {
-            $this->controller = $url[0];
-            //hilangkan controller dari array
-            unset($url[0]);
+        if (isset($url)) {
+            if (file_exists('../app/controllers/' . $url[0] . '.php')) {
+                $this->controller = $url[0];
+                //hilangkan controller dari array
+                unset($url[0]);
+            }
         }
         //panggil controller yg ada di folder controllers
         require_once '../app/controllers/' . $this->controller . '.php';
