@@ -1,9 +1,10 @@
+
 <?php
 
 class About extends Controller
 {
     //method default
-    //tangkap data di url
+    //bisa mengambil data dari url
     public function index($nama = 'nama', $job = 'job', $umur = 22)
     {
         //kirim data

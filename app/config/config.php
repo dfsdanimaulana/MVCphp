@@ -1,6 +1,6 @@
 <?php
 
-define('BASEURL', 'http://localhost/MVC/public');
+define('BASEURL', 'http://localhost/phpmvc/public');
 
 //DB config
 

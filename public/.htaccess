@@ -4,14 +4,22 @@ Options -Multiviews
 
 #menulis ulang url yg ada di browser
 #menjalankan proses rewrite
+
 RewriteEngine On
+
 #kalo url yg di tulis merupakan folder abaikan -> !-d -> flag d untuk direktori, f untuk folder
+
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
+
 #untuk menghindari nama folder dan nama file yg sama dg controller
 
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
 #aturan untuk menulis ulang url menggunakan regex
+
 RewriteRule ^(.*)$ index.php?url=$1 [L]
+
 # ^ => membaca apapun yg di tulis di url mulai dari awal, awalnya di tentukan sesuai root dir,ex setelah public
 # (.*) => ambil semua karakternya apapun(.*) satu persatu sampai selesai($)
 #setelah itu arahkan ke file index yg mengirimkan url

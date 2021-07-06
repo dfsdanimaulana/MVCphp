@@ -1,7 +1,9 @@
 <?php
-
+// yg pertama di buka saat membuka aplikasi
+// controler default
 class Home extends Controller
 {
+    // method default
     public function index()
     {
         //memanggil method di class controller yg ada di core
